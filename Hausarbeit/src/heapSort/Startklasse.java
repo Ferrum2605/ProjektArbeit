@@ -6,7 +6,7 @@ public class Startklasse {
 
         int [] array = {55, 22, 15, 12, 48, 36, 88, 85};
 
-        
+        printArray(array);
         heapSort(array);
 
     }
