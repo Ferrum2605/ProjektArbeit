@@ -4,7 +4,7 @@ public class Startklasse {
 
     public static void main(String[] args) {
 
-        int [] array = {5, 2, 15, 12, 48, 36, 88, 85};
+        int [] array = {55, 22, 15, 12, 48, 36, 88, 85};
 
         
         heapSort(array);
@@ -64,9 +64,9 @@ public class Startklasse {
                 System.out.println(" " +" " + " " + " " + " " + " " + arr[0]+" "); 
                 System.out.println(" " +" " + " " + " " + " " + "/ " + " \\");
             	System.out.println(" " +" " + " " + " " + arr[1] + " " +  " " + " " + arr[2]);
-            	System.out.println();
-            	System.out.println(" " + arr[3] + " " + arr[4] + " " +  arr[5] + " " + arr[6]);
-            	System.out.println();
+            	System.out.println(" " +" " + " /" + " \\" + "   /" + " \\ ");
+            	System.out.println("  " + arr[3] + " " +  arr[4] + " " + arr[5] + " " + arr[6]);
+            	System.out.println(" /");
             	System.out.println(arr[7]);
             System.out.println(); 
         } 
