@@ -9,54 +9,54 @@ public class Startklasse {
         heapSort(array);
     }
     
-    //i = Elternelement, das ggf. nach unten verschoben werden muss
+    
     //n = letzte Stelle des Baumes die betrachet werden soll
     
-    public static void heapSort(int[] a) {
-        generateMaxHeap(a);							// Erstellung BinärBaum
-        printArray(a);								
-        for(int i = a.length - 1; i > 0; i--) {
-            swap(a, i, 0);
-            printArray(a);
-            compareAndSwap(a, 0, i);
-            printArray(a);
+    public static void heapSort(int[] array) {
+        generateMaxHeap(array);							// Erstellung BinärBaum
+        printArray(array);								
+        for(int index = array.length - 1; index > 0; index--) {
+            swap(array, index, 0);									//????
+            printArray(array);
+            compareAndSwap(array, 0, index);
+            printArray(array);
         }
     }
     
     //Erstellt MaxHeapBaum im Array
-    public static void generateMaxHeap(int[] a) {
+    public static void generateMaxHeap(int[] array) {
 
-        for(int i = (a.length / 2) - 1; i >= 0; i--) {		// geteilt durch 2, da bei jedem Swap 2 Zahlen vertauscht werden und Index bei 0 beginnt
-            compareAndSwap(a, i, a.length);
+        for(int i = (array.length / 2) - 1; i >= 0; i--) {		// geteilt durch 2, da bei jedem Swap 2 Zahlen vertauscht werden und Index bei 0 beginnt
+            compareAndSwap(array, i, array.length);
             //System.out.println(i);
         }
     }
      
-    public static void compareAndSwap(int[] a, int i, int n) {
+    public static void compareAndSwap(int[] array, int parentIndex, int lastIndex) {
 
-        while(i <= (n / 2) - 1) {
-            int childIndex = ((i + 1) * 2) - 1;  //Index des linken Kindes
+        while(parentIndex <= (lastIndex / 2) - 1) {
+            int childIndex = ((parentIndex + 1) * 2) - 1;  //Index des linken Kindes
 
-            if (childIndex + 1 <= (n - 1)) {
-                if(a[childIndex] < a[childIndex + 1]) {  //Vergleich der Kinder 
+            if (childIndex + 1 <= (lastIndex - 1)) {	//Prüfung, ob es ein Parent hat
+                if(array[childIndex] < array[childIndex + 1]) {  //Vergleich der Kinder 
                     childIndex++;
                 }
             }
 
-            //prüfung ob Swap nötig ist
-            if(a[i] < a[childIndex]) {
-                swap(a, i, childIndex);
-                i = childIndex;
+            //Prüfung ob Swap nötig ist
+            if(array[parentIndex] < array[childIndex]) {
+                swap(array, parentIndex, childIndex);
+                parentIndex = childIndex;				
             }else break;
         }
 
 
     }
     
-    public static void swap(int[] a, int i, int childIndex) {
-        int z = a[i];
-        a[i] = a[childIndex];
-        a[childIndex] = z;
+    public static void swap(int[] array, int parentIndex, int childIndex) {
+        int z = array[parentIndex];
+        array[parentIndex] = array[childIndex];
+        array[childIndex] = z;
     }
 
    
