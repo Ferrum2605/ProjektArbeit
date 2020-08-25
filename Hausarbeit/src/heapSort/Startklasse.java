@@ -5,6 +5,8 @@ public class Startklasse {
     public static void main(String[] args) {
 
         int [] array = {55, 22, 15, 12, 48, 36, 88, 85};
+        //hallo
+        
 
         heapSort(array);
     }
