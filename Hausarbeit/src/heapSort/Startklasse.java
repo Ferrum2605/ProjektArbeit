@@ -16,7 +16,7 @@ public class Startklasse {
         generateMaxHeap(array);							// Erstellung BinärBaum
         printArray(array);								
         for(int index = array.length - 1; index > 0; index--) {
-            swap(array, index, 0);									//????
+            swap(array, index, 0);									
             printArray(array);
             compareAndSwap(array, 0, index);
             printArray(array);
