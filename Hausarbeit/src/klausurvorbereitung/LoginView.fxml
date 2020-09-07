@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="klausurvorbereitung.LoginController" alignment="CENTER">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <children>
+        <Label text="Project 1" />
+        <TextField fx:id="userInputTextField" promptText="E-Mail"/>
+        <PasswordField fx:id="passwordInputTextField" promptText="Password" />
+        <Label fx:id="errorLabel" />
+        <Button fx:id="loginButton" text="Login" onAction="#login" />
+    </children>
+</VBox>
+

@@ -10,9 +10,12 @@ public class Startklasse {
     }
     
     public static void heapSort(int[] array) {
-    	
+    	System.out.println("1. Unsortierter, erster Binärbaum:");
+    	printArray(array);
         generateMaxHeap(array);	
+        System.out.println(" 2. Durch die Methode \"generateMaxHeap\" generierter Binärbaum: ");
         printArray(array);
+        System.out.println("3. Weitere Binärbäume: ");
         
         for(int lastIndex = array.length - 1; lastIndex > 0; lastIndex--) {
             swap(array, lastIndex, 0);									
@@ -60,7 +63,7 @@ public class Startklasse {
      public static void printArray(int arr[]) 			
         { 
             int n = arr.length; 
-           
+            	System.out.println();
                 System.out.println(" " +" " + " " + " " + " " + " " + arr[0]+" "); 
                 System.out.println(" " +" " + " " + " " + " " + "/ " + " \\");
             	System.out.println(" " +" " + " " + " " + arr[1] + " " +  " " + " " + arr[2]);
@@ -68,7 +71,7 @@ public class Startklasse {
             	System.out.println("  " + arr[3] + " " +  arr[4] + " " + arr[5] + " " + arr[6]);
             	System.out.println(" /");
             	System.out.println(arr[7]);
-            System.out.println(); 
+                System.out.println(); 
         } 
 }
 
