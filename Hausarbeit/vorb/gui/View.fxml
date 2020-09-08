@@ -9,7 +9,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="VorbereitungKlausurleistung2test.gui.Controller">
+	fx:controller="gui.Controller">
 	<children>
 		<TableView fx:id="optionsTableView">
 			<columns>
@@ -18,28 +18,44 @@
 						<PropertyValueFactory property="id" />
 					</cellValueFactory>
 				</TableColumn>
-				<TableColumn fx:id="signColumn" text="Kürzel">
-					<cellValueFactory>
-						<PropertyValueFactory property="sign" />
-					</cellValueFactory>
-				</TableColumn>
-				<TableColumn fx:id="descriptionColumn"
-					text="Beschreibung">
+				<TableColumn fx:id="descriptionColumn" text="Warenbezeichnung">
 					<cellValueFactory>
 						<PropertyValueFactory property="description" />
 					</cellValueFactory>
 				</TableColumn>
-				<TableColumn fx:id="isSelectedColumn" text="ausgewählt">
+				<TableColumn fx:id="classOfGoodsColumn"
+					text="Warenklasse">
+					<cellValueFactory>
+						<PropertyValueFactory property="classOfGoods" />
+					</cellValueFactory>
 				</TableColumn>
+				<TableColumn fx:id="unitColumn" text="Maßgröße">
+					<cellValueFactory>
+						<PropertyValueFactory property="unit" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="priceColumn" text="Preis">
+					<cellValueFactory>
+						<PropertyValueFactory property="price" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="currencyColumn" text="Währung">
+					<cellValueFactory>
+						<PropertyValueFactory property="currency" />
+					</cellValueFactory>
+				</TableColumn>
+				
 			</columns>
 		</TableView>
 		<TextField fx:id="idTextField" promptText="ID" />
-		<TextField fx:id="signTextField" promptText="Kürzel" />
 		<TextField fx:id="descriptionTextField"
-			promptText="Beschreibung" />
-		<CheckBox fx:id="isSelectedCheckBox" text="ausgewählt" />
+			promptText="Warenbezeichnung" />
+		<TextField fx:id="classOfGoodsTextField" promptText="Warenklasse" />
+		<TextField fx:id="unitTextField" promptText="Maßgröße" />
+		<TextField fx:id="priceTextField" promptText="Preis" />
+		<TextField fx:id="currencyTextField" promptText="Währung" />
 		<Button fx:id="addOptionButton" text="Auswahl hinzufügen"
-			onAction="#addOption" />
+			onAction="#addOption" />		
 	</children>
 </VBox>
 

@@ -21,52 +21,43 @@ import javafx.util.Callback;
 public class Controller implements Initializable {
 
 	@FXML
-	TableView<Option> optionsTableView;
+	TableView<Goods> optionsTableView;
 	@FXML
-	TableColumn<Option, Integer> idColumn;
+	TableColumn<Goods, Integer> idColumn;
 	@FXML
-	TableColumn<Option, String> signColumn;
-	@FXML
-	TableColumn<Option, String> descriptionColumn;
-	@FXML
-	TableColumn<Option, Boolean> isSelectedColumn;
+	TableColumn<Goods, String> descriptionColumn;
+	@FXML TableColumn<Goods, String> classOfGoodsColumn;
+	@FXML TableColumn<Goods, String> unitColumn;
+	@FXML TableColumn<Goods, Double> priceColumn;
+	@FXML TableColumn<Goods, String> currencyColumn;
+	
 	@FXML
 	TextField idTextField;
 	@FXML
-	TextField signTextField;
-	@FXML
 	TextField descriptionTextField;
-	@FXML
-	CheckBox isSelectedCheckBox;
-	@FXML
-	Button addOptionButton;
+	
+	@FXML TextField classOfGoodsTextField;
+	@FXML TextField priceTextField;
+	@FXML TextField currencyTextField;
+	@FXML TextField unitTextField;
+	@FXML Button addOptionButton;
+	
 
 	public void initialize(URL location, ResourceBundle resources) {
-		// Spalte "ausgewählt": Aussehen/Art der Zelle (Kontrollkästchen)
-		isSelectedColumn.setCellFactory(new Callback<TableColumn<Option, Boolean>, TableCell<Option, Boolean>>() {
-			public TableCell<Option, Boolean> call(TableColumn<Option, Boolean> param) {
-				CheckBoxTableCell<Option, Boolean> cell = new CheckBoxTableCell<>();
-				return cell;
-			}
-		});
-		// Spalte "ausgewählt": Inhalt der Zelle (boolscher Wahrheitswert)
-		isSelectedColumn.setCellValueFactory(
-				new Callback<TableColumn.CellDataFeatures<Option, Boolean>, ObservableValue<Boolean>>() {
-					public ObservableValue<Boolean> call(CellDataFeatures<Option, Boolean> param) {
-						SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(
-								param.getValue().isSelected());
-						return booleanProperty;
-					}
-				});
+		
+		Model model = Model.getInstance();
 
 	}
 
 	public void addOption(ActionEvent event) {
 		int id = Integer.valueOf(idTextField.getText());
-		String sign = signTextField.getText();
 		String description = descriptionTextField.getText();
-		boolean isSelected = isSelectedCheckBox.isSelected();
-		Option option = new Option(id, sign, description, isSelected);
+		String classOfGoods = classOfGoodsTextField.getText();
+		String unit = unitTextField.getText();
+		double price = Double.valueOf(priceTextField.getText());
+		String currency = currencyTextField.getText();
+	
+		Goods option = new Goods(id, description, classOfGoods, unit, price, currency );
 		optionsTableView.getItems().add(option);
 	}
 
