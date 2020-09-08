@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -46,6 +47,17 @@ public class Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		Model model = Model.getInstance();
+		Goods good = null;
+		try{
+			good = model.zurueck();
+			optionsTableView.getItems().add(good);
+			
+		}
+		catch (Exception e) {
+	        // Gib die Fehlermeldung aus die aufgetreten ist
+	        System.out.println("Konnte die Datei "+
+	             " nicht erstellen:\n"+e.getMessage());
+	    }
 
 	}
 
@@ -56,9 +68,11 @@ public class Controller implements Initializable {
 		String unit = unitTextField.getText();
 		double price = Double.valueOf(priceTextField.getText());
 		String currency = currencyTextField.getText();
-	
-		Goods option = new Goods(id, description, classOfGoods, unit, price, currency );
-		optionsTableView.getItems().add(option);
+		
+		SuperMarket superMarket = new SuperMarket("Aldi");
+		Goods g = new Goods(id, description, classOfGoods, unit, price, currency );
+		superMarket.writeGoods(g);
+		optionsTableView.getItems().add(g);
 	}
 
 }

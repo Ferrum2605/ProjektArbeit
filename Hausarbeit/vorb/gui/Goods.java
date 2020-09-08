@@ -1,6 +1,11 @@
 package gui;
 
-public class Goods {
+import java.io.Serializable;
+
+import supermarkt.ClassOfGoods;
+import supermarkt.Currency;
+
+public class Goods implements Serializable {
 
 	/*
 	 * Attribute
@@ -26,31 +31,55 @@ public class Goods {
 		
 	}
 
+	public void displayProduct()
+	{
+		//System.out.println(id + " " + description + " " + classOfGoods.getDescription() + " " + unit + " " + price + currency.getCurrencyCode());
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
 	public String getClassOfGoods() {
 		return classOfGoods;
-	}
-
-	public String getUnit() {
-		return unit;
-	}
-
-	public double getPrice() {
-		return price;
 	}
 
 	public String getCurrency() {
 		return currency;
 	}
 
-	public int getId() {
-		return id;
+
+	
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	
-	public String getDescription() {
-		return description;
 	}
-	
-
-
-}

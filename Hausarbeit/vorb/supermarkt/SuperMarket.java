@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class SuperMarket {
 	
@@ -77,6 +79,17 @@ public class SuperMarket {
 		}
 		
 	
+	}
+	
+	public void fillGoods(Goods g)
+	{
+		File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\VorbereitungKlausurleistung2test\\supermarkt\\waren.txt");
+		
+		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+			oos.writeObject(g);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void displayGoods()
