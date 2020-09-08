@@ -2,6 +2,8 @@ package supermarkt;
 
 public class Goods {
 	
+
+
 	private int id;
 	private String description;
 	private ClassOfGoods classOfGoods;
@@ -24,5 +26,56 @@ public class Goods {
 	{
 		System.out.println(id + " " + description + " " + classOfGoods.getDescription() + " " + unit + " " + price + currency.getCurrencyCode());
 	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public ClassOfGoods getClassOfGoods() {
+		return classOfGoods;
+	}
+
+	public void setClassOfGoods(ClassOfGoods classOfGoods) {
+		this.classOfGoods = classOfGoods;
+	}
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+	
+	
 
 }
