@@ -20,6 +20,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class LandingController implements Initializable {
+	
+	//test
 
     private Model model = Model.getInstance();
 
