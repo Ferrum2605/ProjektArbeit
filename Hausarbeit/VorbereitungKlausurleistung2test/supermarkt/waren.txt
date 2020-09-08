@@ -1,0 +1,4 @@
+1;Brot;Backwaren;Laib;2.49;Euro
+2;Milch;Milchprodukte;Flasche;0.79;Euro
+3;Butter;Milchprodukte;mg;1.19;Euro
+4;Tomaten;Gemüse;kg;2.49;Euro

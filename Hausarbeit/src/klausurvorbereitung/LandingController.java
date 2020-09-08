@@ -43,7 +43,7 @@ public class LandingController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         greetingLabel.textProperty().bind(model.getUserProperty());
-        // greetingLabel.setText("Hi " + model.getUserName());
+        //greetingLabel.setText("Hi " + model.getUserName());
         System.out.println("Initialized.");
     }
 
