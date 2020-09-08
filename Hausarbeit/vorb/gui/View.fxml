@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="VorbereitungKlausurleistung2test.gui.Controller">
+	<children>
+		<TableView fx:id="optionsTableView">
+			<columns>
+				<TableColumn fx:id="idColumn" text="ID">
+					<cellValueFactory>
+						<PropertyValueFactory property="id" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="signColumn" text="Kürzel">
+					<cellValueFactory>
+						<PropertyValueFactory property="sign" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="descriptionColumn"
+					text="Beschreibung">
+					<cellValueFactory>
+						<PropertyValueFactory property="description" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="isSelectedColumn" text="ausgewählt">
+				</TableColumn>
+			</columns>
+		</TableView>
+		<TextField fx:id="idTextField" promptText="ID" />
+		<TextField fx:id="signTextField" promptText="Kürzel" />
+		<TextField fx:id="descriptionTextField"
+			promptText="Beschreibung" />
+		<CheckBox fx:id="isSelectedCheckBox" text="ausgewählt" />
+		<Button fx:id="addOptionButton" text="Auswahl hinzufügen"
+			onAction="#addOption" />
+	</children>
+</VBox>
+
