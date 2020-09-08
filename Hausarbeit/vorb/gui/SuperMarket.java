@@ -25,6 +25,7 @@ public class SuperMarket {
 	
 	private String name;
 	private ArrayList<Goods> goods;
+	//private ArrayList<Goods> goods2 = new ArrayList<>();
 	
 	File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
 	
@@ -51,11 +52,26 @@ public class SuperMarket {
 		return goods;
 		
 	}
+	/*
+	public void addGoods(Goods g)
+	{
+		goods2.add(g);
+	}
+	*/
 	
-	public void writeGoods(Goods g)
+	public void save(ArrayList<Goods> g2)
 	{
 		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-			oos.writeObject(g);
+			
+			for(int i = 0; i<g2.size() ; i++)
+			{
+				Goods g = g2.get(i);
+				oos.writeObject(g);
+				g.displayProduct();
+			}
+			
+			oos.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -79,5 +95,7 @@ public class SuperMarket {
 		Goods g = goods.get(a-1);
 		return g;
 	}
+	
+	
 
 }

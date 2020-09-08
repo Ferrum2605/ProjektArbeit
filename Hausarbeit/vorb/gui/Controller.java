@@ -18,6 +18,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.util.Callback;
+import supermarkt.ClassOfGoods;
+import supermarkt.Currency;
 
 public class Controller implements Initializable {
 
@@ -42,16 +44,27 @@ public class Controller implements Initializable {
 	@FXML TextField currencyTextField;
 	@FXML TextField unitTextField;
 	@FXML Button addOptionButton;
+	@FXML Button saveButton;
 	
 
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		Model model = Model.getInstance();
-		Goods good = null;
+		Goods good = new Goods(1, "Brot", "test","Laib", 2.49, "Test");
 		try{
-			good = model.zurueck();
-			optionsTableView.getItems().add(good);
-			
+			while(true)
+			{
+				good = null;
+				System.out.println("Hallo");
+				good = model.zurueck();
+				optionsTableView.getItems().add(good);
+				good.displayProduct();
+				if(good!=null)
+				{
+					break;
+				}
+				
+			}
 		}
 		catch (Exception e) {
 	        // Gib die Fehlermeldung aus die aufgetreten ist
@@ -62,6 +75,8 @@ public class Controller implements Initializable {
 	}
 
 	public void addOption(ActionEvent event) {
+		Model model = Model.getInstance();
+		
 		int id = Integer.valueOf(idTextField.getText());
 		String description = descriptionTextField.getText();
 		String classOfGoods = classOfGoodsTextField.getText();
@@ -71,8 +86,13 @@ public class Controller implements Initializable {
 		
 		SuperMarket superMarket = new SuperMarket("Aldi");
 		Goods g = new Goods(id, description, classOfGoods, unit, price, currency );
-		superMarket.writeGoods(g);
+		model.sichern(g);
 		optionsTableView.getItems().add(g);
+	}
+
+	@FXML public void save(ActionEvent event) {
+		Model model = Model.getInstance();
+		model.sp();
 	}
 
 }

@@ -2,9 +2,6 @@ package gui;
 
 import java.io.Serializable;
 
-import supermarkt.ClassOfGoods;
-import supermarkt.Currency;
-
 public class Goods implements Serializable {
 
 	/*

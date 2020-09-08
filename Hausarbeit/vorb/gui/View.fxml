@@ -54,8 +54,10 @@
 		<TextField fx:id="unitTextField" promptText="Maßgröße" />
 		<TextField fx:id="priceTextField" promptText="Preis" />
 		<TextField fx:id="currencyTextField" promptText="Währung" />
-		<Button fx:id="addOptionButton" text="Auswahl hinzufügen"
-			onAction="#addOption" />		
+		<Button fx:id="addOptionButton" text="Ware hinzufügen"
+			onAction="#addOption" />	
+		<Button fx:id="saveButton" text="Ware Speichern"
+			onAction="#save" />	
 	</children>
 </VBox>
 

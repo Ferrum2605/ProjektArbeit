@@ -20,6 +20,9 @@ public class Model {
 	}
 	
 	SuperMarket superMarket = new SuperMarket("Aldi");
+	ArrayList<Goods> g2 = new ArrayList<>();
+	
+	
 	public Goods zurueck()
 	{
 		Goods good = null;
@@ -33,5 +36,16 @@ public class Model {
 		return good;
 	}
 
+	public void sichern(Goods g)
+	{
+		g2.add(g);
+	}
+	
+	public void sp()
+	{
+		superMarket.save(g2);
+	}
+	
+	
 
 }
