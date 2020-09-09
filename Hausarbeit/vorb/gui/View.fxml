@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="gui.Controller">
+	<children>
+		<TableView fx:id="optionsTableView">
+			<columns>
+				<TableColumn fx:id="idColumn" text="ID">
+					<cellValueFactory>
+						<PropertyValueFactory property="id" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="descriptionColumn" text="Warenbezeichnung">
+					<cellValueFactory>
+						<PropertyValueFactory property="description" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="classOfGoodsColumn"
+					text="Warenklasse">
+					<cellValueFactory>
+						<PropertyValueFactory property="classOfGoods" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="unitColumn" text="Maßgröße">
+					<cellValueFactory>
+						<PropertyValueFactory property="unit" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="priceColumn" text="Preis">
+					<cellValueFactory>
+						<PropertyValueFactory property="price" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="currencyColumn" text="Währung">
+					<cellValueFactory>
+						<PropertyValueFactory property="currency" />
+					</cellValueFactory>
+				</TableColumn>
+				
+			</columns>
+		</TableView>
+		<TextField fx:id="idTextField" promptText="ID" />
+		<TextField fx:id="descriptionTextField"
+			promptText="Warenbezeichnung" />
+		<TextField fx:id="classOfGoodsTextField" promptText="Warenklasse" />
+		<TextField fx:id="unitTextField" promptText="Maßgröße" />
+		<TextField fx:id="priceTextField" promptText="Preis" />
+		<TextField fx:id="currencyTextField" promptText="Währung" />
+		<Button fx:id="addOptionButton" text="Ware hinzufügen"
+			onAction="#addOption" />	
+		<Button fx:id="saveButton" text="Ware Speichern"
+			onAction="#save" />	
+	</children>
+</VBox>
+

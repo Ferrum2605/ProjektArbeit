@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class SuperMarket {
 	
@@ -21,7 +23,7 @@ public class SuperMarket {
 	
 	public void uploadGoods() 
 	{
-		File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\VorbereitungKlausurleistung2\\src\\supermarkt\\waren.txt");
+		File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\VorbereitungKlausurleistung2test\\supermarkt\\waren.txt");
 		
 		
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
@@ -79,6 +81,17 @@ public class SuperMarket {
 	
 	}
 	
+	public void fillGoods(Goods g)
+	{
+		File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\VorbereitungKlausurleistung2test\\supermarkt\\waren.txt");
+		
+		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+			oos.writeObject(g);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void displayGoods()
 	{
 		System.out.println("Willkommen im " + name);
@@ -90,6 +103,12 @@ public class SuperMarket {
 			good.displayProduct();
 		}
 		System.out.println();
+	}
+	
+	public Goods getGoodsById(int a)
+	{
+		Goods g = goods.get(a-1);
+		return g;
 	}
 
 }
