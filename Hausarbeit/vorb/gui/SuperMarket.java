@@ -27,7 +27,10 @@ public class SuperMarket {
 	private ArrayList<Goods> goods;
 	//private ArrayList<Goods> goods2 = new ArrayList<>();
 	
-	File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
+	//File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
+	// 
+	
+	File file =new File("C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
 	
 	public SuperMarket(String name)
 	{
@@ -67,6 +70,7 @@ public class SuperMarket {
 			{
 				Goods g = g2.get(i);
 				oos.writeObject(g);
+				//oos.writeFields();
 				g.displayProduct();
 			}
 			
