@@ -50,7 +50,7 @@ public class Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		Model model = Model.getInstance();
-		Goods good = new Goods(1, "Brot", "test","Laib", 2.49, "Test");
+		Goods good;
 		try{
 			while(true)
 			{
@@ -84,7 +84,6 @@ public class Controller implements Initializable {
 		double price = Double.valueOf(priceTextField.getText());
 		String currency = currencyTextField.getText();
 		
-		SuperMarket superMarket = new SuperMarket("Aldi");
 		Goods g = new Goods(id, description, classOfGoods, unit, price, currency );
 		model.sichern(g);
 		optionsTableView.getItems().add(g);
