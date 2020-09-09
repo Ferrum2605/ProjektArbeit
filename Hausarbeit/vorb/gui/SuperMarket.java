@@ -68,18 +68,17 @@ public class SuperMarket {
 			
 			for(int i = 0; i<g2.size() ; i++)
 			{
-				for(Goods good : g2)
-				{
-					good.displayProduct();
-				}
 				System.out.println(i);
 				Goods g = g2.get(i);
 				oos.writeObject(g);
+				
 				//oos.writeFields();
 				g.displayProduct();
+				System.out.println("Test");
 			}
 			
 			oos.close();
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();

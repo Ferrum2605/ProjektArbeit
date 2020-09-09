@@ -30,7 +30,7 @@ public class Goods implements Serializable {
 
 	public void displayProduct()
 	{
-		//System.out.println(id + " " + description + " " + classOfGoods.getDescription() + " " + unit + " " + price + currency.getCurrencyCode());
+		System.out.println(id + " " + description + " " + classOfGoods + " " + unit + " " + price + currency);
 	}
 	
 	
