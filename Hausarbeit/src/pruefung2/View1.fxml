@@ -5,7 +5,9 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="pruefung2.Controller1">
+
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="pruefung2.Controller1"> 
 	<MenuBar  fx:id="menuBar">
 		<Menu  fx:id="fileMenu" text="Datei">
 			<MenuItem  fx:id="newFileMenuItem" text="Neu"
