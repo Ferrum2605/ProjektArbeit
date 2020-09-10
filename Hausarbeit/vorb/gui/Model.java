@@ -24,22 +24,11 @@ public class Model {
 	ArrayList<Goods> goods = new ArrayList<>();
 	
 	
-	public Goods zurueck()
+	public ArrayList<Goods> zurueck()
 	{
-		Goods good = null;
+		
 		goods = superMarket.uploadGoods();
-		
-		for(int i = goods.size()-1; i>0; i-- )
-		{
-			
-			good = goods.get(i);
-			good.displayProduct();
-			goods.remove(i);
-			goods.get(i).displayProduct();
-			
-		}
-		
-		return good;
+		return goods;
 	}
 	
 	public boolean checkArrayList()

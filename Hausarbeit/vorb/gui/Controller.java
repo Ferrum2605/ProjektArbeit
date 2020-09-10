@@ -50,28 +50,10 @@ public class Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		Model model = Model.getInstance();
-		Goods good;
 		try{
-			while(true)
-			{
 				System.out.println("Huhu");
-				good = model.zurueck();
-				good.displayProduct();
-				System.out.println("Huhu2");
-				optionsTableView.getItems().add(good);
-				
-				
-				System.out.println("TEst");
-				if(model.checkArrayList()==false)
-				{
-					break;
-				}
-				
-
+				optionsTableView.getItems().addAll(model.zurueck());
 			}
-		
-			
-		}
 		catch (Exception e) {
 	        // Gib die Fehlermeldung aus die aufgetreten ist
 	        System.out.println("Konnte die Datei "+

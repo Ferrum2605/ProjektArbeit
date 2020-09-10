@@ -68,7 +68,7 @@ public class SuperMarket {
 	
 	public void save(ArrayList<Goods> g2)
 	{
-		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+		try (FileOutputStream fos = new FileOutputStream(file, true); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 						
 				oos.writeObject(g2);
 				oos.close();
