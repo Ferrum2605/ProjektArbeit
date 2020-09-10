@@ -46,6 +46,10 @@ public class SuperMarket {
 
 			
 				go = (ArrayList<Goods>) ois.readObject();
+				for(Goods goo : go)
+				{
+					goo.displayProduct();
+				}
 				 ois.close();
 				 fis.close();
 
@@ -54,10 +58,7 @@ public class SuperMarket {
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		for(Goods goo : go)
-		{
-			goo.displayProduct();
-		}
+		
 		return go;
 		
 	}
