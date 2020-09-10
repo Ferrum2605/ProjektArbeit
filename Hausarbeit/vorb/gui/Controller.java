@@ -55,10 +55,10 @@ public class Controller implements Initializable {
 			while(true)
 			{
 				good = null;
-				System.out.println("Hallo");
 				good = model.zurueck();
 				optionsTableView.getItems().add(good);
 				good.displayProduct();
+				System.out.println("TEst");
 				if(good!=null)
 				{
 					break;
@@ -83,10 +83,8 @@ public class Controller implements Initializable {
 		String unit = unitTextField.getText();
 		double price = Double.valueOf(priceTextField.getText());
 		String currency = currencyTextField.getText();
-		
-		Goods g = new Goods(id, description, classOfGoods, unit, price, currency );
-		model.sichern(g);
-		optionsTableView.getItems().add(g);
+		 
+		optionsTableView.getItems().add(model.addGoods(id, description, classOfGoods, unit, price, currency ));
 	}
 
 	@FXML public void save(ActionEvent event) {
