@@ -54,10 +54,23 @@ public class Controller implements Initializable {
 		try{
 			while(model.checkArrayList())
 			{
+<<<<<<< HEAD
 				System.out.println("Hallo");
+=======
+				good = null;
+>>>>>>> branch 'master' of https://github.com/Ferrum2605/ProjektArbeit.git
 				good = model.zurueck();
 				optionsTableView.getItems().add(good);
 				good.displayProduct();
+<<<<<<< HEAD
+=======
+				System.out.println("TEst");
+				if(good!=null)
+				{
+					break;
+				}
+				
+>>>>>>> branch 'master' of https://github.com/Ferrum2605/ProjektArbeit.git
 			}
 		
 			
@@ -79,10 +92,8 @@ public class Controller implements Initializable {
 		String unit = unitTextField.getText();
 		double price = Double.valueOf(priceTextField.getText());
 		String currency = currencyTextField.getText();
-		
-		Goods g = new Goods(id, description, classOfGoods, unit, price, currency );
-		model.sichern(g);
-		optionsTableView.getItems().add(g);
+		 
+		optionsTableView.getItems().add(model.addGoods(id, description, classOfGoods, unit, price, currency ));
 	}
 
 	@FXML public void save(ActionEvent event) {

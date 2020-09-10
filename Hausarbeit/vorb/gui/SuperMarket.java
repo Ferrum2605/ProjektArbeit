@@ -27,10 +27,10 @@ public class SuperMarket {
 	private ArrayList<Goods> goods;
 	//private ArrayList<Goods> goods2 = new ArrayList<>();
 	
-	//File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
-	// 
+	File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
+	 
 	
-	File file =new File("C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
+	//File file =new File("C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
 	
 	public SuperMarket(String name)
 	{
@@ -43,10 +43,17 @@ public class SuperMarket {
 		ArrayList<Goods> go = new ArrayList<>();
 	
 		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
+<<<<<<< HEAD
 			
 				 go = (ArrayList) ois.readObject();
 				
 			
+=======
+			while (true) {
+				goods = (ArrayList)ois.readObject();
+				
+			}
+>>>>>>> branch 'master' of https://github.com/Ferrum2605/ProjektArbeit.git
 		} catch (EOFException e) {
 			
 		} catch (IOException | ClassNotFoundException e) {
@@ -70,11 +77,11 @@ public class SuperMarket {
 			for(int i = 0; i<g2.size() ; i++)
 			{
 				System.out.println(i);
-				Goods g = g2.get(i);
-				oos.writeObject(g);
+				//Goods g = g2.get(i);
+				oos.writeObject(g2);
 				
 				//oos.writeFields();
-				g.displayProduct();
+				
 				System.out.println("Test");
 			}
 			

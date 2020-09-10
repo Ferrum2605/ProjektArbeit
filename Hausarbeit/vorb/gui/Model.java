@@ -49,16 +49,19 @@ public class Model {
 		}
 	}
 
-	public void sichern(Goods g)
-	{
-		g2.add(g);
-	}
 	
 	public void sp()
 	{
 		superMarket.save(g2);
 	}
 	
+	public Goods addGoods(int id, String description, String classOfGoods, String unit, double price, String currency)
+	{
+		Goods g1 = new Goods(id, description, classOfGoods, unit, price, currency);
+		g2.add(g1);
+		
+		return g1;
+	}
 	
 
 }
