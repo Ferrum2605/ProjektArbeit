@@ -27,10 +27,10 @@ public class SuperMarket {
 	private ArrayList<Goods> goods;
 	//private ArrayList<Goods> goods2 = new ArrayList<>();
 	
-	File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
+	//File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
 	 
 	
-	//File file =new File("C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
+	File file =new File("C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
 	
 	public SuperMarket(String name)
 	{
@@ -45,15 +45,19 @@ public class SuperMarket {
 		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
 
 			
-				 go = (ArrayList) ois.readObject();
-			
+				go = (ArrayList<Goods>) ois.readObject();
+				 ois.close();
+				 fis.close();
 
 		} catch (EOFException e) {
 			
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+		for(Goods goo : go)
+		{
+			goo.displayProduct();
+		}
 		return go;
 		
 	}
