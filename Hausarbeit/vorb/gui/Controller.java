@@ -52,19 +52,15 @@ public class Controller implements Initializable {
 		Model model = Model.getInstance();
 		Goods good;
 		try{
-			while(true)
+			while(model.checkArrayList())
 			{
-				good = null;
 				System.out.println("Hallo");
 				good = model.zurueck();
 				optionsTableView.getItems().add(good);
 				good.displayProduct();
-				if(good!=null)
-				{
-					break;
-				}
-				
 			}
+		
+			
 		}
 		catch (Exception e) {
 	        // Gib die Fehlermeldung aus die aufgetreten ist

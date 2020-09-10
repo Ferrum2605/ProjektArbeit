@@ -40,19 +40,20 @@ public class SuperMarket {
 	
 	public ArrayList<Goods> uploadGoods() 
 	{
+		ArrayList<Goods> go = new ArrayList<>();
 	
 		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
-			while (true) {
-				Goods go = (Goods) ois.readObject();
-				this.goods.add(go);
-			}
+			
+				 go = (ArrayList) ois.readObject();
+				
+			
 		} catch (EOFException e) {
 			
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		return goods;
+		return go;
 		
 	}
 	/*

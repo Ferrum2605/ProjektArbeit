@@ -21,19 +21,32 @@ public class Model {
 	
 	SuperMarket superMarket = new SuperMarket("Aldi");
 	ArrayList<Goods> g2 = new ArrayList<>();
+	ArrayList<Goods> goods = new ArrayList<>();
 	
 	
 	public Goods zurueck()
 	{
 		Goods good = null;
-		ArrayList<Goods> goods = superMarket.uploadGoods();
-		for(int i = 0; i<1; i++ )
+		goods = superMarket.uploadGoods();
+		for(int i = goods.size()-1; i==0; i-- )
 		{
-			
 			good = goods.get(i);
+			goods.remove(i);
 		}
 		
 		return good;
+	}
+	
+	public boolean checkArrayList()
+	{
+		if(goods.size()>0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	public void sichern(Goods g)
