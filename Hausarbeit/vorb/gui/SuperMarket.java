@@ -45,11 +45,8 @@ public class SuperMarket {
 		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
 
 			
-				go = (ArrayList<Goods>) ois.readObject();
-				for(Goods goo : go)
-				{
-					goo.displayProduct();
-				}
+			 	go = (ArrayList <Goods>)ois.readObject(); 
+				System.out.println("ArrayLänge: " + go.size());
 				 ois.close();
 				 fis.close();
 

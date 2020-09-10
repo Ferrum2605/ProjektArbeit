@@ -32,6 +32,7 @@ public class Model {
 		{
 			good = goods.get(i);
 			goods.remove(i);
+			goods.get(i).displayProduct();
 		}
 		
 		return good;
@@ -41,12 +42,15 @@ public class Model {
 	{
 		if(goods.size()>0)
 		{
+			System.out.println("wahr");
 			return true;
 		}
 		else
 		{
+			System.out.println("falsch");
 			return false;
 		}
+		
 	}
 
 	
