@@ -28,11 +28,15 @@ public class Model {
 	{
 		Goods good = null;
 		goods = superMarket.uploadGoods();
-		for(int i = goods.size()-1; i==0; i-- )
+		
+		for(int i = goods.size()-1; i>0; i-- )
 		{
+			
 			good = goods.get(i);
+			good.displayProduct();
 			goods.remove(i);
 			goods.get(i).displayProduct();
+			
 		}
 		
 		return good;
