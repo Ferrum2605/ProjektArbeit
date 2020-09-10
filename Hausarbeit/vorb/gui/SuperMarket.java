@@ -25,7 +25,8 @@ public class SuperMarket {
 	
 	private String name;
 	private ArrayList<Goods> goods;
-	//private ArrayList<Goods> goods2 = new ArrayList<>();
+	private ArrayList<Goods> go = new ArrayList<>();
+	
 	
 	//File file =new File("C:\\Users\\Jannik\\git\\ProjektArbeit\\Hausarbeit\\vorb\\gui\\waren.txt");
 	 
@@ -38,25 +39,29 @@ public class SuperMarket {
 		goods = new ArrayList<>();
 	}
 	
-	public ArrayList<Goods> uploadGoods() 
+	public void uploadGoods() 
 	{
-		ArrayList<Goods> go = new ArrayList<>();
+		
 	
 		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
-
 			
-			 	go = (ArrayList <Goods>)ois.readObject(); 
+				while(true)
+				{
+					
+				
+			 	Goods goods2 = (Goods)ois.readObject(); 
+			 	go.add(goods2);
 				System.out.println("ArrayLänge: " + go.size());
-				 ois.close();
-				 fis.close();
-
+				
+		}
+				 
 		} catch (EOFException e) {
 			
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		return go;
+		
 		
 	}
 	/*
@@ -66,11 +71,23 @@ public class SuperMarket {
 	}
 	*/
 	
+	public ArrayList<Goods> getGo() {
+		return go;
+	}
+
+	public void setGo(ArrayList<Goods> go) {
+		this.go = go;
+	}
+
 	public void save(ArrayList<Goods> g2)
 	{
 		try (FileOutputStream fos = new FileOutputStream(file, true); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 							
-				oos.writeObject(g2);
+				for(Goods g : g2)
+				{
+					oos.writeObject(g);
+				}
+				
 				oos.close();
 				
 		} catch (IOException e) {

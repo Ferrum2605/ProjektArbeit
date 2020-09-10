@@ -13,7 +13,7 @@ public class Startklasse extends Application {
 	}
 
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("ListView.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Erstellung Warenliste");
 		primaryStage.setScene(scene);

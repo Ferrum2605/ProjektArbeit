@@ -53,6 +53,8 @@ public class ListController implements Initializable {
 		try{
 				System.out.println("Huhu");
 				optionsTableView.getItems().addAll(model.zurueck());
+				
+				optionsTableView.refresh();
 			}
 		catch (Exception e) {
 	        // Gib die Fehlermeldung aus die aufgetreten ist

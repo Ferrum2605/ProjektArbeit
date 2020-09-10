@@ -1,4 +1,4 @@
-package tabelle;
+package pruefung;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
@@ -28,60 +29,12 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Window;
 import javafx.util.Callback;
 
-public class Controller implements Initializable {
+public class LandingController implements Initializable {
 
-	@FXML
-	TableView<Option> optionsTableView;
-	@FXML
-	TableColumn<Option, Integer> idColumn;
-	@FXML
-	TableColumn<Option, String> signColumn;
-	@FXML
-	TableColumn<Option, String> descriptionColumn;
-	@FXML
-	TableColumn<Option, Boolean> isSelectedColumn;
-	@FXML
-	TextField idTextField;
-	@FXML
-	TextField signTextField;
-	@FXML
-	TextField descriptionTextField;
-	@FXML
-	CheckBox isSelectedCheckBox;
-	@FXML
-	Button addButton;
-	@FXML
-	MenuBar menuBar;
-	@FXML
-	Menu fileMenu;
-	@FXML
-	MenuItem saveFileAsMenuItem;
-	File file;
-	FileChooser fileChooser;
-	@FXML
-	MenuItem openFileMenuItem;
-	@FXML TextField currencyTextField;
-	@FXML Button addOptionButton;
+	
 
 	public void initialize(URL location, ResourceBundle resources) {
-		// Spalte "ausgewählt": Aussehen/Art der Zelle (CheckBox)
-		isSelectedColumn.setCellFactory(new Callback<TableColumn<Option, Boolean>, TableCell<Option, Boolean>>() {
-			public TableCell<Option, Boolean> call(TableColumn<Option, Boolean> param) {
-				CheckBoxTableCell<Option, Boolean> cell = new CheckBoxTableCell<>();
-				return cell;
-			}
-		});
-		// Spalte ausgewählt: Inhalt der Zelle (boolean)
-		isSelectedColumn.setCellValueFactory(
-				new Callback<TableColumn.CellDataFeatures<Option, Boolean>, ObservableValue<Boolean>>() {
-					public ObservableValue<Boolean> call(CellDataFeatures<Option, Boolean> param) {
-						SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(
-								param.getValue().isSelected());
-						return booleanProperty;
-					}
-				});
-		fileChooser = new FileChooser();
-		fileChooser.getExtensionFilters().add(new ExtensionFilter("Textdateien", "*.txt"));
+		
 	}
 
 	@FXML
@@ -132,6 +85,4 @@ public class Controller implements Initializable {
 	@FXML
 	public void openFile(ActionEvent event) {
 	}
-
-	@FXML public void addOption(ActionEvent event) {}
 }

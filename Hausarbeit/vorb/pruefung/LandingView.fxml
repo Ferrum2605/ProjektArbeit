@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="prüfung.LandingController">
+	<MenuBar fx:id="menuBar">
+		<Menu fx:id="fileMenu" text="Datei">
+			<MenuItem fx:id="saveFileAsMenuItem" text="Speichern unter..." onAction="#saveFileAs"/>
+			<MenuItem  fx:id="openFileMenuItem" text="Datei öffnen..." onAction="#openFile"
+		</Menu>
+	</MenuBar>
+	<children>
+			<TableView fx:id="optionsTableView">
+			<columns>
+				<TableColumn fx:id="idColumn" text="ID">
+					<cellValueFactory>
+						<PropertyValueFactory property="id" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="descriptionColumn" text="Warenbezeichnung">
+					<cellValueFactory>
+						<PropertyValueFactory property="description" />
+					</cellValueFactory>
+				</TableColumn>
+				
+			</columns>
+		</TableView>
+		
+		<TextField fx:id="currencyTextField" promptText="Währung" />
+		<Button fx:id="addOptionButton" text="Ware hinzufügen"
+			onAction="#addOption" />	
+		<Button fx:id="saveButton" text="Ware Speichern"
+			onAction="#save" />	
+	</children>
+</VBox>
+

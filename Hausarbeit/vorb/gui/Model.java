@@ -26,9 +26,8 @@ public class Model {
 	
 	public ArrayList<Goods> zurueck()
 	{
-		
-		goods = superMarket.uploadGoods();
-		return goods;
+		superMarket.uploadGoods();
+		return superMarket.getGo();
 	}
 	
 	public boolean checkArrayList()
