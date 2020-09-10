@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="dev2.project2.RollTheDiceController" alignment="CENTER">
+	<padding>
+		<Insets top="25" right="25" bottom="25" left="25" />
+	</padding>
+	<children>
+		<Label text="Project 2" />
+		<TextField fx:id="playerNameOne" promptText="Name Player 1" />
+		<TextField fx:id="playerNameTwo" promptText="Name Player 2" />
+		<Label fx:id="errorLabel" />
+		<Button fx:id="rollTheDiceButton" text="Roll the Dice"
+			onAction="#rollTheDice" />
+	</children>
+</VBox>
