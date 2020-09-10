@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="tabelle.Controller">
+	<MenuBar fx:id="menuBar">
+		<Menu fx:id="fileMenu" text="Datei">
+			<MenuItem fx:id="saveFileAsMenuItem" text="Speichern unter..." onAction="#saveFileAs"/>
+			<MenuItem  fx:id="openFileMenuItem" text="Datei öffnen..." onAction="#openFile"
+		</Menu>
+	</MenuBar>
+	<children>
+		<TableView fx:id="optionsTableView">
+			<columns>
+				<TableColumn fx:id="idColumn" text="ID">
+					<cellValueFactory>
+						<PropertyValueFactory property="id" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="signColumn" text="Kürzel">
+					<cellValueFactory>
+						<PropertyValueFactory property="sign" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="descriptionColumn"
+					text="Beschreibung">
+					<cellValueFactory>
+						<PropertyValueFactory property="description" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="isSelectedColumn" text="Ausgewählt">
+				</TableColumn>
+			</columns>
+		</TableView>
+		<TextField fx:id="idTextField" promptText="ID" />
+		<TextField fx:id="signTextField" promptText="Kürzel" />
+		<TextField fx:id="descriptionTextField"
+			promptText="Beschreibung" />
+		<CheckBox fx:id="isSelectedCheckBox" text="ausgewählt" />
+		<Button fx:id="addButton" text="Auswahl hinzufügen"
+			onAction="#add" />
+	</children>
+</VBox>
+
