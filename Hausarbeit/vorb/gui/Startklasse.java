@@ -15,7 +15,7 @@ public class Startklasse extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
 		Scene scene = new Scene(root);
-		primaryStage.setTitle("Wareneinkauf");
+		primaryStage.setTitle("Erstellung Warenliste");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

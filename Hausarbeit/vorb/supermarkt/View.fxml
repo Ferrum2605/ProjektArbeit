@@ -9,7 +9,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="vorb.gui.Controller">
+	fx:controller="vorb.gui.ListController">
 	<children>
 		<TableView fx:id="optionsTableView">
 			<columns>

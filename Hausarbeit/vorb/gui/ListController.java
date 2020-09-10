@@ -21,7 +21,7 @@ import javafx.util.Callback;
 import supermarkt.ClassOfGoods;
 import supermarkt.Currency;
 
-public class Controller implements Initializable {
+public class ListController implements Initializable {
 
 	@FXML
 	TableView<Goods> optionsTableView;

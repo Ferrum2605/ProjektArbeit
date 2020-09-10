@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="dev2.project2.LandingController" alignment="CENTER">
+	fx:controller="game.LandingController" alignment="CENTER">
 	<children>
 		<HBox>
 			<VBox prefWidth="300">
