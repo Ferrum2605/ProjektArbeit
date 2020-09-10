@@ -43,17 +43,11 @@ public class SuperMarket {
 		ArrayList<Goods> go = new ArrayList<>();
 	
 		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
-<<<<<<< HEAD
+
 			
 				 go = (ArrayList) ois.readObject();
-				
 			
-=======
-			while (true) {
-				goods = (ArrayList)ois.readObject();
-				
-			}
->>>>>>> branch 'master' of https://github.com/Ferrum2605/ProjektArbeit.git
+
 		} catch (EOFException e) {
 			
 		} catch (IOException | ClassNotFoundException e) {

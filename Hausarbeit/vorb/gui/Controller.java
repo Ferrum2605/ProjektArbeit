@@ -54,23 +54,20 @@ public class Controller implements Initializable {
 		try{
 			while(model.checkArrayList())
 			{
-<<<<<<< HEAD
-				System.out.println("Hallo");
-=======
+
 				good = null;
->>>>>>> branch 'master' of https://github.com/Ferrum2605/ProjektArbeit.git
+
 				good = model.zurueck();
 				optionsTableView.getItems().add(good);
 				good.displayProduct();
-<<<<<<< HEAD
-=======
+
 				System.out.println("TEst");
 				if(good!=null)
 				{
 					break;
 				}
 				
->>>>>>> branch 'master' of https://github.com/Ferrum2605/ProjektArbeit.git
+
 			}
 		
 			
