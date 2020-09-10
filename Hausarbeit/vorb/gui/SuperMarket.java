@@ -71,21 +71,10 @@ public class SuperMarket {
 	public void save(ArrayList<Goods> g2)
 	{
 		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-			
-			for(int i = 0; i<g2.size() ; i++)
-			{
-				System.out.println(i);
-				//Goods g = g2.get(i);
+						
 				oos.writeObject(g2);
+				oos.close();
 				
-				//oos.writeFields();
-				
-				System.out.println("Test");
-			}
-			
-			oos.close();
-			
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
