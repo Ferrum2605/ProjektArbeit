@@ -2,13 +2,7 @@ package pruefungsLeistung2;
 
 public class PCGame extends Game{
 	
-	public OperatingSystem getOperatingSystem() {
-		return operatingSystem;
-	}
-
-	public String getSystemRequirements() {
-		return systemRequirements;
-	}
+	
 
 	private OperatingSystem operatingSystem;
 	private String systemRequirements;
@@ -19,6 +13,14 @@ public class PCGame extends Game{
 		
 		this.operatingSystem = operatingSystem;
 		this.systemRequirements = systemRequirements;
+	}
+	
+	public OperatingSystem getOperatingSystem() {
+		return operatingSystem;
+	}
+
+	public String getSystemRequirements() {
+		return systemRequirements;
 	}
 	
 	

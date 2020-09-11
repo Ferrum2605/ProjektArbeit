@@ -125,7 +125,7 @@ public class Model {
 	/**
 	 * Add car to the CarList object
 	 * 
-	 * @param car
+	 * 
 	 */
 	public void addCarToCarList(Car car) {
 		carList.addCar(car);
@@ -172,7 +172,7 @@ public class Model {
 	 * 
 	 * @throws FileNotFoundException
 	 */
-	public void purgeGameListData() throws FileNotFoundException {
+	public void purgeCarListData() throws FileNotFoundException {
 		File file = new File(userDataPath);
 
 		try {

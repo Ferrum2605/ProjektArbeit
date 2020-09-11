@@ -19,15 +19,11 @@ public class Model {
 
 	private static Model instance;
 	
-	
-	
-	private ArrayList<String> games = new ArrayList<>();
-	
 	private String path = "C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\src\\pruefungsLeistung2\\game.txt";
 	
 	private GameList gameList;
 	
-	private Model() {
+	public Model() {
 		
 		try {
 			checkFile();
@@ -35,34 +31,12 @@ public class Model {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		}
 
-	
-	
-	public ArrayList<String> getGameList() throws FileNotFoundException {
-
-		File file = new File(path);
-		Scanner scanner = new Scanner(file);
-		games = new ArrayList<>();
-
-		while (scanner.hasNextLine()) {
-			games.add(scanner.nextLine());
-		}
-
-		scanner.close();
-		return games;
-	}
-	
-	public void addGames(String game) throws FileNotFoundException {
-		File file = new File(path);
-		try (FileWriter fileWriter = new FileWriter(file, true); BufferedWriter bw = new BufferedWriter(fileWriter);) {
-			bw.append(game);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
+	/**
+	 * Spiel zum Objekt gameList hinzufügen
+	 */
 	public void addGameToGameList(Game game) {
 		gameList.addGame(game);
 		try {
@@ -74,9 +48,7 @@ public class Model {
 	}
 
 	/**
-	 * Remove car from the CarList Object
-	 * 
-	 * @param car
+	 * Spiel aus dem Objekt gameList löschen
 	 */
 	public void removeGameFromGameList(Game game) {
 		gameList.removeGame(game);
@@ -89,10 +61,8 @@ public class Model {
 	}
 
 	/**
-	 * Save recent CarList to a file
+	 * Die der Methode mitgegebene ArrayList wird in die Datei gespeichert
 	 * 
-	 * @param carList
-	 * @throws NotSerializableException
 	 */
 	public void saveGameListToFile(GameList gameList) throws NotSerializableException {
 		File file = new File(path);
@@ -102,6 +72,10 @@ public class Model {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Text-Datei wird "resettet", sprich der Inhalt wird gelöscht 
+	 */
 	
 	public void purgeGameListData() throws FileNotFoundException {
 		File file = new File(path);
@@ -123,6 +97,13 @@ public class Model {
 		}
 	}
 	
+	/**
+	 * Checkt, ob File schon existiert, wenn nicht wird eine neue erstellt. 
+	 * Falls die File kein en Inhalt hat wird ein neues Objekt gameList initialisiert
+	 *  und in der File gespeichert. HAt die File einen Inhalt wird dieser ausgelesen und mit
+	 *  diesem das Objekt gameList initialisiert
+	 */
+	
 	public void checkFile() throws FileNotFoundException {
 		File gameListFile = new File(path);
 		
@@ -134,19 +115,11 @@ public class Model {
 				System.out.println("File <game.txt> doesn't exist. Creating " + path);
 				gameListFile.createNewFile();
 			}
-			/*
-			if (makerFile.exists() && !carListFile.isDirectory()) {
-				System.out.println("File <makers.txt> already exists. Reading content...");
-			} else {
-				System.out.println("File <makers.txt> doesn't exist. Creating " + userDataPath);
-				makerFile.createNewFile();
-			}
-			*/
 			if (gameListFile.length() == 0) {
+				
 				gameList = new GameList();
-				//G = new Car("moritz", "ist", "dumm", true, 2, 'f', 0.99, 276, 50000000, 12, 24);
-				//gameList.addGame(game);
 				saveGameListToFile(gameList);
+				
 			} else {
 				try (FileInputStream fis = new FileInputStream(gameListFile);
 						ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -162,31 +135,27 @@ public class Model {
 		}
 	}
 
+	
 	/**
-	 * Add car to the CarList object
+	 * Zurückgeben einer Instanz des Models
 	 * 
-	 * @param car
 	 */
-	public void addCarToCarList(Game game) {
-		gameList.addGame(game);
-		try {
-			saveGameListToFile(gameList);
-		} catch (NotSerializableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
+	//Singleton-Bereich
+		public static Model getInstance() {
+			if (instance == null) {
+				instance = new Model();
+			}
+			return instance;
+		}
+		
+	/**
+	 * Getter and Setter
+	 */
 	
 
 	public static void setInstance(Model instance) {
 		Model.instance = instance;
-	}
-
-
-
-	public void setGames(ArrayList<String> games) {
-		this.games = games;
 	}
 
 
@@ -202,23 +171,11 @@ public class Model {
 	}
 
 
-
-	public ArrayList<String> getGames() {
-		return games;
-	}
-
-
-
 	public String getPath() {
 		return path;
 	}
 
-
-
-	public static Model getInstance() {
-		if (instance == null) {
-			instance = new Model();
-		}
-		return instance;
-	}
+	
+	
+	
 }
