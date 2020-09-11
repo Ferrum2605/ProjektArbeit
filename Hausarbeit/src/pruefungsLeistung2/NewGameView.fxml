@@ -31,13 +31,13 @@
             <Label fx:id="genreLabel" text="Genre:" GridPane.rowIndex="1" />
             <Label fx:id="yearLabel" text="Erscheinungsjahr:" GridPane.rowIndex="2" />
             <Label fx:id="systemLabel" text="System:" GridPane.rowIndex="3" />
-            <Label fx:id="operatingSystemLabel" text="Betriebssystem:" GridPane.rowIndex="4" opacity="0" />
-            <Label fx:id="systemRequirementsLabel" text="Systemanforderungen:" GridPane.rowIndex="5" opacity="0" />
-            <Label fx:id="consoleSystemLabel" text="Konsolensystem:" GridPane.rowIndex="6" opacity="0" />
-            <ComboBox fx:id="consoleSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="6" opacity="0" />
-            <TextField fx:id="systemRequirementsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" opacity="0"/> 
+            <Label fx:id="operatingSystemLabel" text="Betriebssystem:" GridPane.rowIndex="4"  />
+            <Label fx:id="systemRequirementsLabel" text="Systemanforderungen:" GridPane.rowIndex="5"  />
+            <Label fx:id="consoleSystemLabel" text="Konsolensystem:" GridPane.rowIndex="6"  />
+            <ComboBox fx:id="consoleSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="6" disable="true"/>
+            <TextField fx:id="systemRequirementsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" disable="true"/> 
             <ComboBox fx:id="genreComboBox" prefHeight="28.0" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="operationSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="4" opacity="0" />
+            <ComboBox fx:id="operationSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="4" disable="true" />
             <TextField fx:id="titleTextField" GridPane.columnIndex="1" />
             <TextField fx:id="yearTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">

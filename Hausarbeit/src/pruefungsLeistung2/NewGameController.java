@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -48,6 +50,7 @@ public class NewGameController implements Initializable {
 	@FXML
 	Genre genre;
 	OperatingSystem os;
+	ConsoleSystem cs;
 	@FXML
 	Button cancelButton;
 	@FXML
@@ -65,12 +68,26 @@ public class NewGameController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		genreComboBox.getItems().addAll(Genre.values());
 		operationSystemComboBox.getItems().addAll(OperatingSystem.values());
+		consoleSystemComboBox.getItems().addAll(ConsoleSystem.values());
 
 	}
 
 	@FXML
 	public void addNewGame(ActionEvent event) {
-
+		if (consoleGameRadioButton.isSelected()) {
+			try {
+				String title = titleTextField.getText();
+				Genre genre = (Genre) genreComboBox.getValue();
+				int year = Integer.valueOf(yearTextField.getText());
+				OperatingSystem os = (OperatingSystem) operationSystemComboBox.getValue();
+			} catch (NumberFormatException e) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Error");
+				alert.setHeaderText("ERROR");
+				alert.setContentText("Fehlerhafte Eingabe, bitte Eingaben überprüfen!");
+				alert.showAndWait();
+			}
+		}
 	}
 
 	/**
@@ -89,34 +106,29 @@ public class NewGameController implements Initializable {
 		stage.show();
 
 	}
-
+	/**
+	 * Je nachdem ob PC, Konsole oder Mobile Games ausgewählt wird, werden die entsprechenden Optionen erlaubt oder
+	 * nicht
+	 * @param event
+	 */
 	@FXML
 	public void radioSelect(ActionEvent event) {
 		if (pcGameRadioButton.isSelected()) {
-			operatingSystemLabel.setOpacity(1);
-			operationSystemComboBox.setOpacity(1);
-			systemRequirementsLabel.setOpacity(1);
-			consoleSystemLabel.setOpacity(0);
-			consoleSystemComboBox.setOpacity(0);
-			systemRequirementsTextField.setOpacity(1);
+			consoleSystemComboBox.setDisable(true);
+			operationSystemComboBox.setDisable(false);
+			systemRequirementsTextField.setDisable(false);
 			consoleGameRadioButton.setSelected(false);
 			mobileGameRadioButton.setSelected(false);
 		} else if (consoleGameRadioButton.isSelected()) {
-			operatingSystemLabel.setOpacity(0);
-			operationSystemComboBox.setOpacity(0);
-			systemRequirementsLabel.setOpacity(0);
-			consoleSystemLabel.setOpacity(1);
-			consoleSystemComboBox.setOpacity(1);
-			systemRequirementsTextField.setOpacity(0);
+			operationSystemComboBox.setDisable(true);
+			systemRequirementsTextField.setDisable(true);
+			consoleSystemComboBox.setDisable(false);
 			pcGameRadioButton.setSelected(false);
 			mobileGameRadioButton.setSelected(false);
 		} else if (mobileGameRadioButton.isSelected()) {
-			operatingSystemLabel.setOpacity(1);
-			operationSystemComboBox.setOpacity(1);
-			systemRequirementsLabel.setOpacity(0);
-			consoleSystemLabel.setOpacity(0);
-			consoleSystemComboBox.setOpacity(0);
-			systemRequirementsTextField.setOpacity(0);
+			operationSystemComboBox.setDisable(false);
+			consoleSystemComboBox.setDisable(true);
+			systemRequirementsTextField.setDisable(true);
 			pcGameRadioButton.setSelected(false);
 			consoleGameRadioButton.setSelected(false);
 		}
