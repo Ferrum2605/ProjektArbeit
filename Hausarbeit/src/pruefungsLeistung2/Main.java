@@ -29,7 +29,7 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Meine Spiele");
 		primaryStage.setScene(scene);
-		primaryStage.show();gger
+		primaryStage.show(); wefwef
 		
 	}
 
