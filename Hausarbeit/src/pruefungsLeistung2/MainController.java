@@ -1,13 +1,5 @@
 package pruefungsLeistung2;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableCell;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,16 +7,22 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.stage.Stage;
-import javafx.util.Callback;
-import tabelle.Option;
-import javafx.scene.control.TableColumn;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class MainController implements Initializable {
 
@@ -69,8 +67,8 @@ public class MainController implements Initializable {
 		playedThroughColumn.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Game, Boolean>, ObservableValue<Boolean>>() {
 					public ObservableValue<Boolean> call(CellDataFeatures<Game, Boolean> param) {
-						SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty();
-								param.getValue().isPlayedThrough();
+						SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(
+								param.getValue().isPlayedThrough());
 						return booleanProperty;
 					}
 				});	
@@ -92,17 +90,22 @@ public class MainController implements Initializable {
 	@FXML
 	public void createNewGame(ActionEvent event) throws IOException {
 		
-		Parent root = FXMLLoader.load(getClass().getResource("Output.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("NewGameView.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) createNewGameButton.getScene().getWindow();
 		stage.setScene(scene);
+		stage.setTitle("Neues Spiel anlegen");
+		stage.setHeight(500);
+		stage.setWidth(600);
 		stage.show();
 
 		
 	}
 
 	@FXML
-	public void deleteSelectedGame(ActionEvent event) {
+	public void deleteSelectedGame(ActionEvent event)  {
+		
+		
 	}
 
 	
