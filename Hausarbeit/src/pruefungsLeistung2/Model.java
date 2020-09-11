@@ -19,15 +19,11 @@ public class Model {
 
 	private static Model instance;
 	
-	
-	
-	private ArrayList<String> games = new ArrayList<>();
-	
 	private String path = "C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\src\\pruefungsLeistung2\\game.txt";
 	
 	private GameList gameList;
 	
-	private Model() {
+	public Model() {
 		
 		try {
 			checkFile();
@@ -35,24 +31,10 @@ public class Model {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		}
 
-	
-	
-	public ArrayList<String> getGameList() throws FileNotFoundException {
-
-		File file = new File(path);
-		Scanner scanner = new Scanner(file);
-		games = new ArrayList<>();
-
-		while (scanner.hasNextLine()) {
-			games.add(scanner.nextLine());
-		}
-
-		scanner.close();
-		return games;
-	}
-	
+	/*
 	public void addGames(String game) throws FileNotFoundException {
 		File file = new File(path);
 		try (FileWriter fileWriter = new FileWriter(file, true); BufferedWriter bw = new BufferedWriter(fileWriter);) {
@@ -62,6 +44,7 @@ public class Model {
 			e.printStackTrace();
 		}
 	}
+	*/
 	
 	public void addGameToGameList(Game game) {
 		gameList.addGame(game);
@@ -144,7 +127,7 @@ public class Model {
 			*/
 			if (gameListFile.length() == 0) {
 				gameList = new GameList();
-				//G = new Car("moritz", "ist", "dumm", true, 2, 'f', 0.99, 276, 50000000, 12, 24);
+				
 				//gameList.addGame(game);
 				saveGameListToFile(gameList);
 			} else {
@@ -185,12 +168,6 @@ public class Model {
 
 
 
-	public void setGames(ArrayList<String> games) {
-		this.games = games;
-	}
-
-
-
 	public void setPath(String path) {
 		this.path = path;
 	}
@@ -202,19 +179,12 @@ public class Model {
 	}
 
 
-
-	public ArrayList<String> getGames() {
-		return games;
-	}
-
-
-
 	public String getPath() {
 		return path;
 	}
 
 
-
+	//Singleton-Bereich
 	public static Model getInstance() {
 		if (instance == null) {
 			instance = new Model();
