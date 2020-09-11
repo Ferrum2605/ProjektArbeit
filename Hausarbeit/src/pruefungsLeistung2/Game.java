@@ -2,7 +2,7 @@ package pruefungsLeistung2;
 
 
 
-public class Game {
+public abstract class Game {
 	
 	protected String title;
 	protected Genre genre;

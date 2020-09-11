@@ -74,12 +74,16 @@ public class NewGameController implements Initializable {
 
 	@FXML
 	public void addNewGame(ActionEvent event) {
+		
+		Model model = Model.getInstance();
+		
 		if (consoleGameRadioButton.isSelected()) {
 			try {
 				String title = titleTextField.getText();
 				Genre genre = (Genre) genreComboBox.getValue();
 				int year = Integer.valueOf(yearTextField.getText());
-				OperatingSystem os = (OperatingSystem) operationSystemComboBox.getValue();
+				ConsoleSystem cs = (ConsoleSystem) consoleSystemComboBox.getValue();
+				model.generateConsoleGame(title, genre, year, false, cs);
 			} catch (NumberFormatException e) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Error");

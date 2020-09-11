@@ -16,15 +16,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Model implements Serializable{
+public class Model {
 
 	private static Model instance;
 	
 	private String path = "C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\src\\pruefungsLeistung2\\game.txt";
+	private File file = new File("C:\\Users\\A002520\\Documents\\GitHub\\ProjektArbeit\\Hausarbeit\\src\\pruefungsLeistung2\\game.txt");
 	
 	private GameList gameList;
 	
 	public Model() {
+		
+		
+		gameList = new GameList();
 		
 		try {
 			checkFile();
@@ -32,16 +36,20 @@ public class Model implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 		
 		}
 
 	/**
 	 * Spiel zum Objekt gameList hinzufügen und gameList in File speichern
 	 */
-	public void addGameToGameList(Game game) {
+	public void addGameToGameList(ConsoleGame game) {
+		System.out.println(game.getTitle());
 		gameList.addGame(game);
+		
 		try {
-			saveGameListToFile(gameList);
+			
+			saveGameListToFile(gameList.getGameList());
 		} catch (NotSerializableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,10 +73,16 @@ public class Model implements Serializable{
 	 * Die der Methode mitgegebene ArrayList wird in die Datei gespeichert
 	 * 
 	 */
-	public void saveGameListToFile(GameList gameList) throws NotSerializableException {
-		File file = new File(path);
-		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-			oos.writeObject(gameList);
+	public void saveGameListToFile(ArrayList<ConsoleGame> gameList) throws NotSerializableException {
+		 
+		try (FileOutputStream fos = new FileOutputStream(file,true); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+			
+			System.out.println(gameList.get(0).getTitle());
+			ConsoleGame g = new ConsoleGame("title",Genre.ACTION, 2004, false, ConsoleSystem.PS4);
+			System.out.println("hallo");
+			oos.writeObject(g);
+			System.out.println("Hallo2");
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -114,12 +128,12 @@ public class Model implements Serializable{
 				System.out.println("File <game.txt> already exists. Reading content...");
 			} else {
 				System.out.println("File <game.txt> doesn't exist. Creating " + path);
-				gameListFile.createNewFile();
+				//gameListFile.createNewFile();
 			}
 			if (gameListFile.length() == 0) {
 				
 				gameList = new GameList();
-				saveGameListToFile(gameList);
+				//saveGameListToFile(gameList);
 				
 			} else {
 				try (FileInputStream fis = new FileInputStream(gameListFile);
@@ -130,10 +144,12 @@ public class Model implements Serializable{
 				} catch (IOException | ClassNotFoundException e) {
 					e.printStackTrace();
 				}
-			}
-		} catch (IOException e) {
+			}}
+		catch(Exception e)
+		{
 			e.printStackTrace();
 		}
+		
 	}
 
 	
@@ -157,7 +173,7 @@ public class Model implements Serializable{
 		public MobileGame generateMobileGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem)
 		{
 			MobileGame g1 = new MobileGame(title, genre, publishingYear, playedThrough, operatingSystem);
-			addGameToGameList(g1);
+			//addGameToGameList(g1);
 			return g1;
 		}
 		
@@ -171,7 +187,7 @@ public class Model implements Serializable{
 		public PCGame generatePCGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem, String systemRequirements)
 		{
 			PCGame g1 = new PCGame(title, genre, publishingYear, playedThrough, operatingSystem, systemRequirements);
-			addGameToGameList(g1);
+			//addGameToGameList(g1);
 			return g1;
 		}
 		

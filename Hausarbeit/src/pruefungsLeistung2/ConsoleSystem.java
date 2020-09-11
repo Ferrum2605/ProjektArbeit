@@ -12,4 +12,14 @@ public enum ConsoleSystem {
 		this.abbreviation=abbreviation;
 		this.description=description;
 	}
+
+	public String getAbbreviation() {
+		return abbreviation;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+	
+	
 }

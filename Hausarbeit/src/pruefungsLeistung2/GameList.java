@@ -8,19 +8,19 @@ public class GameList implements Serializable{
 private static final long serialVersionUID = 1L;
 	
 	
-	private ArrayList<Game> gameList;
+	private ArrayList<ConsoleGame> gameList;
 	
 	public GameList()
 	{
 		gameList = new ArrayList<>();
 	}
 	
-	public void addGame(Game game)
+	public void addGame(ConsoleGame game)
 	{
 		gameList.add(game);
 	}
 	
-	public void removeGame(Game game)
+	public void removeGame(ConsoleGame game)
 	{
 		gameList.remove(game);
 	}
@@ -29,8 +29,16 @@ private static final long serialVersionUID = 1L;
 		return serialVersionUID;
 	}
 
-	public ArrayList<Game> getGameList() {
+	public ArrayList<ConsoleGame> getGameList() {
 		return gameList;
+	}
+	
+	public void displayGameList()
+	{
+		for(ConsoleGame g : gameList)
+		{
+			System.out.println(g.getTitle());
+		}
 	}
 	
 	
