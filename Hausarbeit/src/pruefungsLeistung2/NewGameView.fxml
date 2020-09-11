@@ -29,22 +29,26 @@
          <children>
             <Label fx:id="titleLabel" text="Titel:" />
             <Label fx:id="genreLabel" text="Genre:" GridPane.rowIndex="1" />
-            <Label fx:id="yearLabel" text="Erscheinungsjahr" GridPane.rowIndex="2" />
-            <Label fx:id="systemLabel" text="System" GridPane.rowIndex="3" />
-            <Label fx:id="operatingSystemLabel" text="Betriebssystem" GridPane.rowIndex="4" />
+            <Label fx:id="yearLabel" text="Erscheinungsjahr:" GridPane.rowIndex="2" />
+            <Label fx:id="systemLabel" text="System:" GridPane.rowIndex="3" />
+            <Label fx:id="operatingSystemLabel" text="Betriebssystem:" GridPane.rowIndex="4" opacity="0" />
+            <Label fx:id="systemRequirementsLabel" text="Systemanforderungen:" GridPane.rowIndex="5" opacity="0" />
+            <Label fx:id="consoleSystemLabel" text="Konsolensystem:" GridPane.rowIndex="6" opacity="0" />
+            <ComboBox fx:id="consoleSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="6" opacity="0" />
+            <TextField fx:id="systemRequirementsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" opacity="0"/> 
             <ComboBox fx:id="genreComboBox" prefHeight="28.0" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="operationSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="operationSystemComboBox" prefHeight="28.0" prefWidth="289.0" GridPane.columnIndex="1" GridPane.rowIndex="4" opacity="0" />
             <TextField fx:id="titleTextField" GridPane.columnIndex="1" />
             <TextField fx:id="yearTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <RadioButton fx:id="consoleGameRadioButton" text="Konsolenspiel" />
-                  <RadioButton fx:id="pcGameRadioButton" text="PC-Spiel" />
-                  <RadioButton fx:id="mobileGameRadioButton" text="Mobile Game" />
+                  <RadioButton fx:id="consoleGameRadioButton" text="Konsolenspiel" onAction="#radioSelect" />
+                  <RadioButton fx:id="pcGameRadioButton" text="PC-Spiel" onAction="#radioSelect" />
+                  <RadioButton fx:id="mobileGameRadioButton" text="Mobile Game" onAction="#radioSelect" />
                </children>
             </VBox>
-            <Button fx:id="addNewGameButton" prefHeight="32.0" prefWidth="277.0" text="Neues Spiel hinzufügen" GridPane.rowIndex="5" onAction="#addNewGame"  />
-            <Button fx:id="cancelButton" prefHeight="32.0" prefWidth="274.0" text="Abbrechen" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction="#cancel" />
+            <Button fx:id="addNewGameButton" prefHeight="32.0" prefWidth="277.0" text="Neues Spiel hinzufügen" GridPane.rowIndex="7" onAction="#addNewGame"  />
+            <Button fx:id="cancelButton" prefHeight="32.0" prefWidth="274.0" text="Abbrechen" GridPane.columnIndex="1" GridPane.rowIndex="7" onAction="#cancel" />
          </children>
       </GridPane>
   
