@@ -1,8 +1,13 @@
 package pruefungsLeistung2;
 
+import java.io.Serializable;
 
-
-public abstract class Game {
+public class Game implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	protected String title;
 	protected Genre genre;

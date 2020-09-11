@@ -43,13 +43,13 @@ public class Model {
 	/**
 	 * Spiel zum Objekt gameList hinzufügen und gameList in File speichern
 	 */
-	public void addGameToGameList(ConsoleGame game) {
+	public void addGameToGameList(Game game) {
 		System.out.println(game.getTitle());
 		gameList.addGame(game);
 		
 		try {
 			
-			saveGameListToFile(gameList.getGameList());
+			saveGameListToFile(gameList);
 		} catch (NotSerializableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,14 +73,14 @@ public class Model {
 	 * Die der Methode mitgegebene ArrayList wird in die Datei gespeichert
 	 * 
 	 */
-	public void saveGameListToFile(ArrayList<ConsoleGame> gameList) throws NotSerializableException {
+	public void saveGameListToFile(GameList gameList) throws NotSerializableException {
 		 
 		try (FileOutputStream fos = new FileOutputStream(file,true); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 			
-			System.out.println(gameList.get(0).getTitle());
-			ConsoleGame g = new ConsoleGame("title",Genre.ACTION, 2004, false, ConsoleSystem.PS4);
-			System.out.println("hallo");
-			oos.writeObject(g);
+			
+			//ConsoleGame g = new ConsoleGame("title",Genre.ACTION, 2004, false, ConsoleSystem.PS4);
+			//System.out.println("hallo");
+			oos.writeObject(gameList);
 			System.out.println("Hallo2");
 			
 		} catch (IOException e) {
