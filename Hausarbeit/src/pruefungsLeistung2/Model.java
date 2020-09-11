@@ -11,11 +11,12 @@ import java.io.IOException;
 import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Model {
+public class Model implements Serializable{
 
 	private static Model instance;
 	
@@ -35,7 +36,7 @@ public class Model {
 		}
 
 	/**
-	 * Spiel zum Objekt gameList hinzufügen
+	 * Spiel zum Objekt gameList hinzufügen und gameList in File speichern
 	 */
 	public void addGameToGameList(Game game) {
 		gameList.addGame(game);
@@ -147,6 +148,31 @@ public class Model {
 				instance = new Model();
 			}
 			return instance;
+		}
+		
+		/**
+		 *  DAs Objekt ...Game wird erstellt, zur gameList hinzugefügt und gespeichert
+		 */
+		
+		public MobileGame generateMobileGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem)
+		{
+			MobileGame g1 = new MobileGame(title, genre, publishingYear, playedThrough, operatingSystem);
+			addGameToGameList(g1);
+			return g1;
+		}
+		
+		public ConsoleGame generateConsoleGame(String title,Genre genre, int publishingYear, boolean playedThrough, ConsoleSystem consoleSystem)
+		{
+			ConsoleGame g1 = new ConsoleGame(title, genre, publishingYear, playedThrough, consoleSystem);
+			addGameToGameList(g1);
+			return g1;
+		}
+		
+		public PCGame generatePCGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem, String systemRequirements)
+		{
+			PCGame g1 = new PCGame(title, genre, publishingYear, playedThrough, operatingSystem, systemRequirements);
+			addGameToGameList(g1);
+			return g1;
 		}
 		
 	/**
