@@ -36,7 +36,7 @@ public class Model implements Serializable{
 		}
 
 	/**
-	 * Spiel zum Objekt gameList hinzufügen und gameLiwst in File speichern
+	 * Spiel zum Objekt gameList hinzufügen und gameList in File speichern
 	 */
 	public void addGameToGameList(Game game) {
 		gameList.addGame(game);
@@ -150,6 +150,9 @@ public class Model implements Serializable{
 			return instance;
 		}
 		
+		/**
+		 *  DAs Objekt ...Game wird erstellt, zur gameList hinzugefügt und gespeichert
+		 */
 		
 		public MobileGame generateMobileGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem)
 		{
