@@ -149,6 +149,28 @@ public class Model {
 			return instance;
 		}
 		
+		
+		public MobileGame generateMobileGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem)
+		{
+			MobileGame g1 = new MobileGame(title, genre, publishingYear, playedThrough, operatingSystem);
+			addGameToGameList(g1);
+			return g1;
+		}
+		
+		public ConsoleGame generateConsoleGame(String title,Genre genre, int publishingYear, boolean playedThrough, ConsoleSystem consoleSystem)
+		{
+			ConsoleGame g1 = new ConsoleGame(title, genre, publishingYear, playedThrough, consoleSystem);
+			addGameToGameList(g1);
+			return g1;
+		}
+		
+		public PCGame generatePCGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem, String systemRequirements)
+		{
+			PCGame g1 = new PCGame(title, genre, publishingYear, playedThrough, operatingSystem, systemRequirements);
+			addGameToGameList(g1);
+			return g1;
+		}
+		
 	/**
 	 * Getter and Setter
 	 */
