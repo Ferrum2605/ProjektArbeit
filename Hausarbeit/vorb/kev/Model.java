@@ -125,7 +125,7 @@ public class Model {
 	/**
 	 * Add car to the CarList object
 	 * 
-	 * @param car
+	 * 
 	 */
 	public void addCarToCarList(Car car) {
 		carList.addCar(car);

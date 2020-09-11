@@ -21,6 +21,7 @@ public class Main extends Application {
 		m.saveGameListToFile(gameL);
 		*/
 		
+		
 		launch(args);
 	}
 	public void start(Stage primaryStage) throws IOException{
