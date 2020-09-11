@@ -11,11 +11,12 @@ import java.io.IOException;
 import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Model {
+public class Model implements Serializable{
 
 	private static Model instance;
 	
@@ -35,7 +36,7 @@ public class Model {
 		}
 
 	/**
-	 * Spiel zum Objekt gameList hinzufügen
+	 * Spiel zum Objekt gameList hinzufügen und gameLiwst in File speichern
 	 */
 	public void addGameToGameList(Game game) {
 		gameList.addGame(game);
