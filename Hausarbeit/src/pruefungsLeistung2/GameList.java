@@ -29,7 +29,7 @@ private static final long serialVersionUID = 1L;
 		return serialVersionUID;
 	}
 
-	public ArrayList<Game> getGameList() {
+	public ArrayList<Game> getGameArrayList() {
 		return gameList;
 	}
 	

@@ -11,14 +11,14 @@ public class Game implements Serializable{
 	
 	protected String title;
 	protected Genre genre;
-	protected int publishingYear;
+	protected int year;
 	protected boolean playedThrough;
 	
 	public Game(String title,Genre genre, int publishingYear, boolean playedThrough)
 	{
 		this.title = title;
 		this.genre = genre;
-		this.publishingYear = publishingYear;
+		this.year = publishingYear;
 		this.playedThrough = playedThrough;
 		
 	}
@@ -32,11 +32,16 @@ public class Game implements Serializable{
 	}
 
 	public int getPublishingYear() {
-		return publishingYear;
+		return year;
 	}
 
 	public boolean isPlayedThrough() {
 		return playedThrough;
+	}
+	
+	public void displayGame()
+	{
+		System.out.println(title);
 	}
 
 

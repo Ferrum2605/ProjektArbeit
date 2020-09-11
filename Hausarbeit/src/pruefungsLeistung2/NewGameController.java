@@ -84,6 +84,7 @@ public class NewGameController implements Initializable {
 				int year = Integer.valueOf(yearTextField.getText());
 				ConsoleSystem cs = (ConsoleSystem) consoleSystemComboBox.getValue();
 				model.generateConsoleGame(title, genre, year, false, cs);
+				System.out.println(year);
 			} catch (NumberFormatException e) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Error");
@@ -106,7 +107,14 @@ public class NewGameController implements Initializable {
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) cancelButton.getScene().getWindow();
 		stage.setScene(scene);
+		
+		Model model = Model.getInstance();
+		
+		model.checkFile();
 
+		MainController con = new MainController();
+		//con.getTableView().getItems().addAll(model.getGameList().getGameArrayList());
+		
 		stage.show();
 
 	}

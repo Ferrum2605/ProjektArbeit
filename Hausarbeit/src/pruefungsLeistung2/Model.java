@@ -75,13 +75,9 @@ public class Model {
 	 */
 	public void saveGameListToFile(GameList gameList) throws NotSerializableException {
 		 
-		try (FileOutputStream fos = new FileOutputStream(file,true); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-			
-			
-			//ConsoleGame g = new ConsoleGame("title",Genre.ACTION, 2004, false, ConsoleSystem.PS4);
-			//System.out.println("hallo");
+		try (FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+		
 			oos.writeObject(gameList);
-			System.out.println("Hallo2");
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -124,21 +120,18 @@ public class Model {
 		
 
 		try {
-			if (gameListFile.exists() && !gameListFile.isDirectory()) {
-				System.out.println("File <game.txt> already exists. Reading content...");
-			} else {
-				System.out.println("File <game.txt> doesn't exist. Creating " + path);
-				//gameListFile.createNewFile();
-			}
+			
+			
 			if (gameListFile.length() == 0) {
 				
 				gameList = new GameList();
-				//saveGameListToFile(gameList);
+				saveGameListToFile(gameList);
 				
 			} else {
 				try (FileInputStream fis = new FileInputStream(gameListFile);
-						ObjectInputStream ois = new ObjectInputStream(fis)) {
-					gameList = (GameList) ois.readObject();
+					ObjectInputStream ois = new ObjectInputStream(fis)) {
+					  gameList = (GameList) ois.readObject();
+				
 				} catch (EOFException e) {
 
 				} catch (IOException | ClassNotFoundException e) {
@@ -153,6 +146,10 @@ public class Model {
 	}
 
 	
+	public GameList getGameList() {
+		return gameList;
+	}
+
 	/**
 	 * Zurückgeben einer Instanz des Models
 	 * 
@@ -173,7 +170,7 @@ public class Model {
 		public MobileGame generateMobileGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem)
 		{
 			MobileGame g1 = new MobileGame(title, genre, publishingYear, playedThrough, operatingSystem);
-			//addGameToGameList(g1);
+			addGameToGameList(g1);
 			return g1;
 		}
 		
@@ -187,7 +184,7 @@ public class Model {
 		public PCGame generatePCGame(String title,Genre genre, int publishingYear, boolean playedThrough, OperatingSystem operatingSystem, String systemRequirements)
 		{
 			PCGame g1 = new PCGame(title, genre, publishingYear, playedThrough, operatingSystem, systemRequirements);
-			//addGameToGameList(g1);
+			addGameToGameList(g1);
 			return g1;
 		}
 		

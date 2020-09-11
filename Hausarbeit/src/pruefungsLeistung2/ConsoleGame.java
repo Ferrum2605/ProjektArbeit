@@ -8,9 +8,9 @@ public class ConsoleGame extends Game{
 
 	ConsoleSystem consoleSystem;
 
-	public ConsoleGame(String title, Genre genre, int publishingYear, boolean playedThrough, ConsoleSystem consoleSystem)
+	public ConsoleGame(String title, Genre genre, int year, boolean playedThrough, ConsoleSystem consoleSystem)
 	{
-		super(title, genre, publishingYear, playedThrough);
+		super(title, genre, year, playedThrough);
 		this.consoleSystem = consoleSystem;
 	}
 

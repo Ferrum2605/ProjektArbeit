@@ -1,5 +1,6 @@
 package pruefungsLeistung2;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -58,6 +59,8 @@ public class MainController implements Initializable {
 	 */
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		Model model = Model.getInstance();
+		
 		playedThroughColumn.setCellFactory(new Callback<TableColumn<Game, Boolean>, TableCell<Game, Boolean>>() {
 			public TableCell<Game, Boolean> call(TableColumn<Game, Boolean> param) {
 				CheckBoxTableCell<Game, Boolean> cell = new CheckBoxTableCell<>();
@@ -72,6 +75,29 @@ public class MainController implements Initializable {
 						return booleanProperty;
 					}
 				});	
+		
+		try {
+			model.checkFile();
+			/*
+			for(Game g: model.getGameList().getGameArrayList())
+			{
+				g.displayGame();
+			}
+			*/
+			
+			TableView.getItems().addAll(model.getGameList().getGameArrayList());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public TableView getTableView() {
+		return TableView;
+	}
+
+	public void setTableView(TableView tableView) {
+		TableView = tableView;
 	}
 
 	@FXML
