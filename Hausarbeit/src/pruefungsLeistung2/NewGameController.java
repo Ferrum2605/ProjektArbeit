@@ -71,11 +71,19 @@ public class NewGameController implements Initializable {
 		consoleSystemComboBox.getItems().addAll(ConsoleSystem.values());
 
 	}
-
+/**
+ * neues SPiel wird hinzugefügt
+ * @param event
+ */
 	@FXML
 	public void addNewGame(ActionEvent event) {
 		
 		Model model = Model.getInstance();
+		
+		/**
+		* Abhängig vom RadioButton werden hier die entsprechenden die entsprechenden Objekte erzeugt und in die txt geschrieben
+		* @param event
+		*/
 		
 		if (consoleGameRadioButton.isSelected()) {
 			try {
@@ -84,7 +92,7 @@ public class NewGameController implements Initializable {
 				int year = Integer.valueOf(yearTextField.getText());
 				ConsoleSystem cs = (ConsoleSystem) consoleSystemComboBox.getValue();
 				model.generateConsoleGame(title, genre, year, false, cs);
-				System.out.println(year);
+				//System.out.println(year);
 			} catch (NumberFormatException e) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Error");
@@ -94,19 +102,16 @@ public class NewGameController implements Initializable {
 			}
 		}
 		
-		/**
-		* Abhängig vom RadioButton werden hier die entsprechenden die entsprechenden Objekte erzeugt und in die txt geschrieben
-		* @param event
-		*/
+		
 		
 		if (pcGameRadioButton.isSelected()) {
 			try {
 			String title = titleTextField.getText();
 			Genre genre = (Genre) genreComboBox.getValue();
-			int publishingYear = Integer.valueOf(yearTextField.getText());
+			int year = Integer.valueOf(yearTextField.getText());
 			OperatingSystem os = (OperatingSystem) consoleSystemComboBox.getValue();
 			String systemRequirements = systemRequirementsTextField.getText();
-			model.generatePCGame(title, genre, publishingYear, false, os, systemRequirements);
+			model.generatePCGame(title, genre, year, false, os, systemRequirements);
 			} catch (NumberFormatException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
@@ -119,9 +124,9 @@ public class NewGameController implements Initializable {
 			try {
 			String title = titleTextField.getText();
 			Genre genre = (Genre) genreComboBox.getValue();
-			int publishingYear = Integer.valueOf(yearTextField.getText());
+			int year = Integer.valueOf(yearTextField.getText());
 			OperatingSystem os = (OperatingSystem) consoleSystemComboBox.getValue();
-			model.generateMobileGame(title, genre, publishingYear, false, os);
+			model.generateMobileGame(title, genre, year, false, os);
 			} catch (NumberFormatException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");

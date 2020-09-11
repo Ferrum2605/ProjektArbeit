@@ -2,7 +2,7 @@ package pruefungsLeistung2;
 
 import java.io.Serializable;
 
-public class Game implements Serializable{
+public abstract class Game implements Serializable{
 	
 	/**
 	 * 
