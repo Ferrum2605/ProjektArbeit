@@ -112,7 +112,7 @@ public class NewGameController implements Initializable {
 		
 		model.checkFile();
 
-		MainController con = new MainController();
+		//MainController con = new MainController();
 		//con.getTableView().getItems().addAll(model.getGameList().getGameArrayList());
 		
 		stage.show();
