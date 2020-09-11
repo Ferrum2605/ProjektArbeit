@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,14 +79,9 @@ public class MainController implements Initializable {
 		
 		try {
 			model.checkFile();
-			/*
-			for(Game g: model.getGameList().getGameArrayList())
-			{
-				g.displayGame();
-			}
-			*/
 			
 			TableView.getItems().addAll(model.getGameList().getGameArrayList());
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -105,7 +101,9 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
-	public void deleteAllGames(ActionEvent event) {
+	public void deleteAllGames(ActionEvent event) throws FileNotFoundException {
+		Model model = Model.getInstance();
+		model.purgeGameListData();
 	}
 
 	/**
@@ -130,7 +128,16 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void deleteSelectedGame(ActionEvent event)  {
+		 
+		Model model = Model.getInstance();
 		
+		ObservableList selectedItems = TableView.getSelectionModel().getSelectedItems();
+		
+		Game g = (Game)selectedItems.get(0);
+		 TableView.getSelectionModel().getSelectedIndex()
+		 model.removeGameFromGameList(g);
+		 
+		 TableView.getItems().addAll(model.getGameList().getGameArrayList());
 		
 	}
 
