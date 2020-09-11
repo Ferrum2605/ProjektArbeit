@@ -172,7 +172,7 @@ public class Model {
 	 * 
 	 * @throws FileNotFoundException
 	 */
-	public void purgeCarListData() throws FileNotFoundException {
+	public void purgeGameListData() throws FileNotFoundException {
 		File file = new File(userDataPath);
 
 		try {
