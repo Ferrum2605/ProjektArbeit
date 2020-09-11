@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.Button?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="pruefungsLeistung2.MainController">
+	<MenuBar fx:id="menuBar" GridPane.columnIndex="0"
+			GridPane.rowIndex="0">
+		<Menu fx:id="fileMenu" text="Menu">
+			<MenuItem fx:id="saveMenuItem" text="Speichern" onAction="#saveGames"/>
+			<MenuItem fx:id="deleteAllMenuItem" text="Datei öffnen..." onAction="#deleteAllGames"/>
+		</Menu>
+	</MenuBar>
+	<children>
+	<TableView  fx:id="TableView" GridPane.columnIndex="0"
+			GridPane.rowIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="1">
+			<columns>
+				<TableColumn  fx:id="titleColumn" text="Titel">
+					<cellValueFactory>
+						<PropertyValueFactory property="title"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="genreColumn" text="Genre">
+					<cellValueFactory>
+						<PropertyValueFactory property="genre"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="yearColumn"
+					text="Jahr">
+					<cellValueFactory>
+						<PropertyValueFactory property="year"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="systemColumn" text="System">
+					<cellValueFactory>
+						<PropertyValueFactory property="system"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="playedThroughColumn" text="durchgespielt">
+				</TableColumn>
+			</columns>
+		</TableView>
+		<Button fx:id="createNewGameButton" text="Neues Spiel anlegen" onAction="#createNewGame" GridPane.columnIndex="0"
+			GridPane.rowIndex="2"/>
+		<Button fx:id="deleteSelectedGameButton" text="Ausgewähltes Spiel entfernen" onAction="#deleteSelectedGame" GridPane.columnIndex="1"
+			GridPane.rowIndex="2"/>
+		</children>
+	</GridPane>
+
