@@ -69,8 +69,8 @@ public class MainController implements Initializable {
 		playedThroughColumn.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Game, Boolean>, ObservableValue<Boolean>>() {
 					public ObservableValue<Boolean> call(CellDataFeatures<Game, Boolean> param) {
-						SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(
-								param.getValue().isSelected());
+						SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty();
+								param.getValue().isPlayedThrough();
 						return booleanProperty;
 					}
 				});	
